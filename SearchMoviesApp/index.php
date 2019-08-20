@@ -1,18 +1,20 @@
 <?php
-	$config = include("./config.php");
-	$error = false;
-	$message = '';
+    $config = include("./config.php");
+    $error = false;
+    $message = '';
     $colorArray = ['red','green','blue','yellow'];
-	if($_SERVER['REQUEST_METHOD'] =='GET' && !empty($_GET) && isset($_GET['movietitle'])) {
-		$movietitle = trim($_GET['movietitle']);
-		$movietitle =  urlencode($movietitle);
-		$apikey = $config['apikey'];
-		$url="http://www.omdbapi.com/?s=".$movietitle."&apikey=".$apikey; // Seraching list of movies
-		$curl = curl_init($url);
-		curl_setopt($curl, CURLOPT_HTTPGET, true);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		$response_json = curl_exec($curl);
-		curl_close($curl);
+
+    if($_SERVER['REQUEST_METHOD'] =='GET' && !empty($_GET) && isset($_GET['movietitle'])) {
+	    
+        $movietitle = trim($_GET['movietitle']);
+        $movietitle =  urlencode($movietitle);
+	    $apikey = $config['apikey'];
+        $url="http://www.omdbapi.com/?s=".$movietitle."&apikey=".$apikey; // Seraching list of movies
+	    $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_HTTPGET, true);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $response_json = curl_exec($curl);
+        curl_close($curl);
 		$response=json_decode($response_json, true);
 		if(isset($response['Error'])) {
 			$error = true;
@@ -82,8 +84,7 @@
         		</tbody>
 			</div>
 		<?php } ?>
-		
-
+	
 	</body>
 
 </html>
