@@ -15,5 +15,5 @@ For example,http://www.omdbapi.com/?s=Iron+Man&r=json&apikey=5aa3a4bd.
 To be safe, I wrote two versions of scripts (i.e getmovieList.php and getmatchMovie.php ). In getmovieList.php, it will be making "By Search" API call and  "By Title" search in getmatchMovie.php.
 All you have to do is copy whatever script you want to run into index.php.
 
-Thank
+Thanks
 Kenneth
